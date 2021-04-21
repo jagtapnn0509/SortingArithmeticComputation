@@ -55,3 +55,17 @@ done
 
 echo "Sorted array in Descending Order : ${array[@]}"
 
+for (( x=1; x<=$n; x++ ))
+do
+        for (( y=$x+1; y<=$n; y++ ))
+        do
+                if [ ${array[y]} -lt ${array[x]} ]
+                then
+                        temp=${array[x]}
+                        array[$x]=${array[y]}
+                        array[$y]=$temp
+                fi
+        done
+done
+
+echo "Sorted array in Ascending Order : ${array[@]}"
