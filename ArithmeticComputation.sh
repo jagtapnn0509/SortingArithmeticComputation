@@ -40,11 +40,11 @@ echo "${array[@]}"
 
 n=${#array[@]}
 
-for (( x=1; x<=$n; x++ ))
+for (( x=$n; x<=1; x-- ))
 do
-        for (( y=$x+1; y<=$n; y++ ))
+        for (( y=$n-1; y<=1; y-- ))
         do
-                if [ ${array[y]} -lt ${array[x]} ]
+                if [ ${array[y]} -gt ${array[x]} ]
                 then
                         temp=${array[x]}
                         array[$x]=${array[y]}
@@ -53,5 +53,5 @@ do
         done
 done
 
-echo "Sorted array in Ascending Order : ${array[@]}"
+echo "Sorted array in Descending Order : ${array[@]}"
 
