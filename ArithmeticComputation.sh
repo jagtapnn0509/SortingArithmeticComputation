@@ -13,3 +13,6 @@ echo " Result of Second Computation Program is : $result2"
 
 result3=`awk "BEGIN {print $c + $a / $b}"`
 echo " Result of Third Computation Program is : $result3"
+
+result4=`awk "BEGIN {print $a % $b + $c}"`
+echo " Result of Forth Computation Program is : $result4"
