@@ -20,14 +20,22 @@ Arithmetic[CP2]="$result2"
 Arithmetic[CP3]="$result3"
 Arithmetic[CP4]="$result4"
 
+echo "All Arithmetic Computations And their Result in Dictionary :"
+
 echo "All Arithmetic Computations Result : ${Arithmetic[@]}"
 echo "Arithmetic Computation Program Is : ${!Arithmetic[@]}"
-echo "All Arithmetic Computations And their Result"
+
 
 for (( i=1; i<=${#Arithmetic[@]}; i++ ))
 do
 	echo "CP$i : ${Arithmetic[CP$i]}"
 done
 
+echo "All Arithmetic Computations And their Result in Array :"
+for (( i=1; i<=${#Arithmetic[@]}; i++ ))
+do
+        array[$i]=${Arithmetic[CP$i]}
+done
+echo "${array[@]}"
 
 
