@@ -1,18 +1,33 @@
-#!/bin/bash -x
+#!/bin/bash
+declare -A Arithmetic
 echo "Welcome to Sorting Arithmetic Computation Problem"
 # input take from user
-read -p "Enter First Number :" a
-read -p "Enter Second Number :" b
-read -p "Enter Third Number :" c
+read -p "Enter A Number :" a
+read -p "Enter B Number :" b
+read -p "Enter C Number :" c
 
 result1=`awk "BEGIN {print $a + $b * $c}"`
-echo " Result of First Computation Program is : $result1"
 
 result2=`awk "BEGIN {print $a * $b + $c}"`
-echo " Result of Second Computation Program is : $result2"
 
 result3=`awk "BEGIN {print $c + $a / $b}"`
-echo " Result of Third Computation Program is : $result3"
 
 result4=`awk "BEGIN {print $a % $b + $c}"`
-echo " Result of Forth Computation Program is : $result4"
+
+
+Arithmetic[CP1]="$result1"
+Arithmetic[CP2]="$result2"
+Arithmetic[CP3]="$result3"
+Arithmetic[CP4]="$result4"
+
+echo "All Arithmetic Computations Result : ${Arithmetic[@]}"
+echo "Arithmetic Computation Program Is : ${!Arithmetic[@]}"
+echo "All Arithmetic Computations And their Result"
+
+for (( i=1; i<=${#Arithmetic[@]}; i++ ))
+do
+	echo "CP$i : ${Arithmetic[CP$i]}"
+done
+
+
+
