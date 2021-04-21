@@ -6,13 +6,13 @@ read -p "Enter A Number :" a
 read -p "Enter B Number :" b
 read -p "Enter C Number :" c
 
-result1=`awk "BEGIN {print $a + $b * $c}"`
+result1=$(($a+$b*$c))
 
-result2=`awk "BEGIN {print $a * $b + $c}"`
+result2=$(($a*$b+$c))
 
-result3=`awk "BEGIN {print $c + $a / $b}"`
+result3=$(($c+$a/$b))
 
-result4=`awk "BEGIN {print $a % $b + $c}"`
+result4=$(($a%$b+$c))
 
 
 Arithmetic[CP1]="$result1"
@@ -38,4 +38,20 @@ do
 done
 echo "${array[@]}"
 
+n=${#array[@]}
+
+for (( x=1; x<=$n; x++ ))
+do
+        for (( y=$x+1; y<=$n; y++ ))
+        do
+                if [ ${array[y]} -lt ${array[x]} ]
+                then
+                        temp=${array[x]}
+                        array[$x]=${array[y]}
+                        array[$y]=$temp
+                fi
+        done
+done
+
+echo "Sorted array in Ascending Order : ${array[@]}"
 
